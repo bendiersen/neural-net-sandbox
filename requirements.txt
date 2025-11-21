@@ -1,0 +1,5 @@
+# Core packages
+numpy
+matplotlib
+imageio
+

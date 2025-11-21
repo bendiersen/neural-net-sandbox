@@ -1,0 +1,22 @@
+{
+  "name": "Neural Net Sandbox",
+  "context": "..",
+  "dockerFile": "Dockerfile",
+  "runArgs": ["--gpus=all"],
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-python.vscode-pylance"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  },
+
+  "postCreateCommand": "pip install -r requirements.txt",
+  "remoteUser": "root"
+}
