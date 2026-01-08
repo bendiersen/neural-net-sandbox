@@ -24,13 +24,11 @@ RUN pip install --upgrade pip
 RUN pip install torch==2.9.1+cu128 torchvision==0.24.1+cu128 torchaudio==2.9.1+cu128 \
     --index-url https://download.pytorch.org/whl/cu128
 
-# Copy your project reqs
-COPY requirements.txt /workspace/requirements.txt
-RUN pip install -r /workspace/requirements.txt
+# Copy only requirements first (cache-friendly)
+COPY requirements.txt /tmp/requirements.txt
+RUN python -m pip install -r /tmp/requirements.txt
 
-# -----------------------------
-# Set working directory
-# -----------------------------
+# mount /workspace at runtime
 WORKDIR /workspace
 
 # -----------------------------

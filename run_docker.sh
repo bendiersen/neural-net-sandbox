@@ -15,6 +15,7 @@ else
 fi
 
 # Run docker container
+echo "Type 'exit' and hit enter to leave docker container"
 sudo docker run --rm --gpus all -it \
     -v "$(pwd)":/workspace \
     $IMAGE_NAME \
